@@ -26,8 +26,7 @@ import { ChildComponent } from "./child.component";
                 paramSentBack: {{child.paramSentBack | async | json}}<br/>
                 testEvent: {{child.testEvent | async}}
             </p>
-        </div>`,
-    directives: [ChildComponent]
+        </div>`
 })
 export class TrvParentComponent {
 
