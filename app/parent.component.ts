@@ -1,7 +1,5 @@
 import { Component } from "@angular/core";
 
-import { ChildComponent } from "./child.component";
-
 @Component({
     selector: 'parent',
     template: `
@@ -22,8 +20,7 @@ import { ChildComponent } from "./child.component";
                        on-testEvent="onTestEvent($event)">
                 </child>
             </p>
-        </div>`,
-    directives: [ChildComponent]
+        </div>`
 })
 export class ParentComponent {
 
