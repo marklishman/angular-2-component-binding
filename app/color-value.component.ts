@@ -5,25 +5,26 @@ import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
     template: `
         <p>
             {{name}}: 
-            <input type="number" 
+            <input #color
+                   type="number" 
                    min="0" 
                    max="255" 
                    step="10" 
-                   [(ngModel)]="value"
-                   (input)="sendColor()"/>
+                   [value]="initialValue"
+                   (input)="sendColor(color.value)"/>
         </p>`,
 })
 export class ColorValueComponent implements OnInit {
     @Input() name: string;
-    @Input("init-value") value: number = 0;
+    @Input("init-value") initialValue: string = "0";
 
-    @Output("value") colorValueEvent: EventEmitter<number> = new EventEmitter();
+    @Output("value") colorValueEvent: EventEmitter<string> = new EventEmitter();
 
     ngOnInit() {
-        this.sendColor();
+        this.sendColor(this.initialValue);
     }
 
-    private sendColor(): void {
-        this.colorValueEvent.emit(this.value);
+    private sendColor(color: string): void {
+        this.colorValueEvent.emit(color);
     }
 }
