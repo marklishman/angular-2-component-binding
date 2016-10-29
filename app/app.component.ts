@@ -1,19 +1,14 @@
 import { Component } from '@angular/core';
+import { RedGreenBlue } from "./red-green-blue";
 
 @Component({
     selector: 'app',
     template: `
-        <parent *ngIf="showSection('component')"></parent>
-        <trv-parent *ngIf="showSection('trv')"></trv-parent>
-        `
+        <color-value name="Red" (value)="rgb.red=$event"></color-value>
+        <color-value name="Green" (value)="rgb.green=$event" init-value="200"></color-value>
+        <color-value name="Blue" (value)="rgb.blue=$event" init-value="140"></color-value>
+        <color-box [rgb]="rgb"></color-box>`,
 })
 export class AppComponent {
-
-    private showSection(name: string): boolean {
-        if (!window.location.search) {
-            return true;
-        }
-        const PARAM = window.location.search.substr(1);
-        return PARAM === name;
-    }
+    private rgb: RedGreenBlue = new RedGreenBlue();
 }

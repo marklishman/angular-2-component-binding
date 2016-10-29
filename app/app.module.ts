@@ -1,20 +1,20 @@
-import { NgModule }      from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
 
 import { AppComponent } from "./app.component";
-import { ParentComponent } from "./parent.component";
-import { ChildComponent } from "./child.component";
-import { TrvParentComponent } from "./trv-parent.component";
+import { ColorValueComponent } from "./color-value.component";
+import { FormsModule } from "@angular/forms";
+import { ColorBoxComponent } from "./color-box.component";
 
 @NgModule({
     imports:      [
-        BrowserModule
+        BrowserModule,
+        FormsModule
     ],
     declarations: [
         AppComponent,
-        ParentComponent,
-        ChildComponent,
-        TrvParentComponent
+        ColorValueComponent,
+        ColorBoxComponent
     ],
     bootstrap:    [
         AppComponent
